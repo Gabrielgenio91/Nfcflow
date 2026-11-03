@@ -1,0 +1,12 @@
+# Variáveis para `npm run preview` (Cloudflare local). Copie para .dev.vars — NÃO versione.
+# Em produção use: wrangler secret put NOME   (ou Settings > Variables and Secrets no painel)
+NEXTJS_ENV=development
+SUPABASE_SERVICE_ROLE_KEY=
+MERCADO_PAGO_ACCESS_TOKEN=
+MERCADO_PAGO_WEBHOOK_SECRET=
+CORREIOS_API_TOKEN=
+CORREIOS_API_URL=
+CORREIOS_ORIGIN_ZIP=
+GOOGLE_PLACES_API_KEY=
+CRON_SECRET=
+QR_IP_HASH_SALT=

@@ -1,0 +1,208 @@
+/* ==========================================================================
+   NFCFLOW — visual "roxo neon" para Login, Cadastro, Painel Admin e Painel
+   Revendedor. Tudo usa o prefixo .nx- (não afeta a landing nem outras telas).
+   ========================================================================== */
+
+.nx-root {
+  --nx-bg: #06040e;
+  --nx-bg-2: #0a0716;
+  --nx-purple: #7b4dff;
+  --nx-purple-2: #8b5cf6;
+  --nx-lilac: #a98bff;
+  --nx-blue: #4f7dff;
+  --nx-line: rgba(139, 92, 246, 0.22);
+  --nx-line-strong: rgba(139, 92, 246, 0.45);
+  --nx-card: linear-gradient(160deg, rgba(34, 24, 66, 0.55), rgba(12, 9, 26, 0.72));
+
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  isolation: isolate;
+  background:
+    radial-gradient(900px 480px at 8% -4%, rgba(110, 60, 255, 0.2), transparent 70%),
+    radial-gradient(800px 500px at 100% 30%, rgba(79, 125, 255, 0.1), transparent 70%),
+    var(--nx-bg);
+}
+
+/* ondas luminosas no rodapé (decorativo) */
+.nx-root::before {
+  content: '';
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 38vh;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 90% at 30% 110%, rgba(123, 77, 255, 0.28), transparent 70%),
+    radial-gradient(50% 80% at 85% 120%, rgba(79, 125, 255, 0.18), transparent 70%);
+  -webkit-mask-image: linear-gradient(to top, #000, transparent);
+  mask-image: linear-gradient(to top, #000, transparent);
+}
+.nx-root::after {
+  content: '';
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 30vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 260' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%237b4dff' stop-opacity='0'/%3E%3Cstop offset='.5' stop-color='%23a98bff' stop-opacity='.9'/%3E%3Cstop offset='1' stop-color='%234f7dff' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' stroke='url(%23g)' stroke-width='1.2'%3E%3Cpath d='M0 200 C 250 120 450 260 700 170 S 1050 90 1200 160'/%3E%3Cpath d='M0 215 C 260 140 460 270 710 190 S 1060 110 1200 180' opacity='.7'/%3E%3Cpath d='M0 230 C 270 160 470 280 720 210 S 1070 130 1200 200' opacity='.45'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* ---------- cartão de vidro premium ---------- */
+.nx-glass {
+  position: relative;
+  border: 1px solid var(--nx-line);
+  background: var(--nx-card);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 24px 60px -20px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 0 60px -30px rgba(123, 77, 255, 0.55);
+}
+.nx-glass--hover {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.nx-glass--hover:hover {
+  border-color: var(--nx-line-strong);
+  box-shadow:
+    0 24px 60px -20px rgba(0, 0, 0, 0.7),
+    0 1px 0 rgba(255, 255, 255, 0.09) inset,
+    0 0 50px -18px rgba(123, 77, 255, 0.7);
+}
+
+/* ---------- texto em gradiente ---------- */
+.nx-gradient-text {
+  background: linear-gradient(90deg, #9b6bff 0%, #a78bfa 55%, #7aa2ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- pílula "Tecnologia que conecta" ---------- */
+.nx-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--nx-line-strong);
+  background: rgba(123, 77, 255, 0.1);
+  color: #e9e3ff;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  box-shadow: 0 0 24px -8px rgba(123, 77, 255, 0.6);
+}
+
+/* ---------- botão primário neon ---------- */
+.nx-btn {
+  background: linear-gradient(180deg, #8657ff, #6d3df0) !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow:
+    0 10px 28px -6px rgba(123, 77, 255, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.nx-btn:hover:not(:disabled) {
+  transform: translateY(-1px) !important;
+  filter: brightness(1.08);
+  box-shadow:
+    0 14px 34px -6px rgba(123, 77, 255, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.nx-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.99) !important;
+}
+
+/* ---------- campos ---------- */
+.nx-root .nx-field {
+  height: 3rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  background: rgba(10, 7, 24, 0.75);
+  color: #f4f2fb;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+.nx-root .nx-field::placeholder {
+  color: #7f789c;
+}
+.nx-root .nx-field:hover:not(:disabled) {
+  border-color: rgba(139, 92, 246, 0.4);
+}
+.nx-root .nx-field:focus-visible {
+  border-color: rgba(169, 139, 255, 0.85);
+  box-shadow: 0 0 0 3px rgba(123, 77, 255, 0.25), 0 0 24px -6px rgba(123, 77, 255, 0.6);
+  background: rgba(14, 10, 32, 0.9);
+  outline: none;
+}
+
+/* ---------- decoração do hero (login/cadastro) ---------- */
+.nx-hero-photo {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid var(--nx-line);
+  box-shadow: 0 30px 80px -30px rgba(123, 77, 255, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+.nx-hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 4, 14, 0) 55%, rgba(6, 4, 14, 0.75) 100%),
+    radial-gradient(70% 60% at 100% 0%, rgba(123, 77, 255, 0.25), transparent 70%);
+  pointer-events: none;
+}
+
+/* ---------- navegação (sidebar/bottom bar) ---------- */
+.nx-nav-active {
+  background: linear-gradient(90deg, rgba(123, 77, 255, 0.32), rgba(123, 77, 255, 0.08));
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(139, 92, 246, 0.35), 0 0 26px -10px rgba(123, 77, 255, 0.8);
+}
+
+/* ---------- animações suaves ---------- */
+@keyframes nx-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nx-rise {
+  animation: nx-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes nx-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.nx-float {
+  animation: nx-float 7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-rise, .nx-float { animation: none; }
+}
+
+/* ---------- conteúdo dos painéis: refinos escopados ---------- */
+.nx-panel-content h1 {
+  letter-spacing: -0.025em;
+}
+.nx-panel-content table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* scrollbar roxa discreta dentro dos shells */
+.nx-root ::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+}
+.nx-root ::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.55);
+}
+
+/* respeita áreas seguras (iPhone) */
+.nx-safe-b {
+  padding-bottom: env(safe-area-inset-bottom);
+}
